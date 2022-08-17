@@ -1,14 +1,27 @@
 {% extends "base.html" %}
 
-{% block title %}TEST BLOCK{% endblock %}
+{% block title %}TODO app{% endblock %}
 
 {% block content %}
-<div class="container">
- <h1>Hello, Alex</h1>
- {% for note in notes %}
-   {% include "note.html" %}
- {% endfor %}
- {% include "add_note.html" %}
-</div>
-
+  <div class="container">
+    <div class="mb-5">
+      <h1>Hello, Alex</h1>
+      <div class="row">
+        {% for note in notes %}
+          {% if forloop.counter0|divisibleby:3 %}
+            </div><div class="row mb-3">
+          {% endif %}
+          <div class="col-4">
+            {% include "note.html" %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5">
+        {% include "add_note.html" %}
+      </div>
+      <div class="col-7"></div>
+    </div>
+  </div>
 {% endblock %}

@@ -1,6 +1,10 @@
 <div class="card">
  <div class="card-body">
-   <h5 class="card-title">{{ note.title }}</h5>
-   <p class="card-text">{{ note.text }}</p>
+   <h3 class="card-title mb-2">{{ note.title|truncatechars:25 }}</h3>
+   <h5 class="card-title mb-2">
+     <span class="text-muted">Author:</span>
+     {{ note.author }}
+   </h5>
+   <p class="card-text">{{ note.text|truncatechars:300 }}</p>
  </div>
 </div>
